@@ -1,0 +1,16 @@
+name: 'Test gha-latest-tag'
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 'Get Version'
+      id:   get-version
+      uses: radj307/gha-latest-tag@v0
+      
+    - name: 'Print Version'
+      run:  echo ${{ steps.get-version.outputs.version }}
+      
